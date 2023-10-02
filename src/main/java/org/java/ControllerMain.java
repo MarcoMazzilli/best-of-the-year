@@ -75,21 +75,32 @@ public class ControllerMain {
 	@GetMapping("/movies/{id}")
 	public String movieDetails(@PathVariable int id, Model model) {
 		
-		Movie film = null;
-		
-        for (Movie movie : getBestMovies()) {
-        	
-        	Movie m = movie;
-        	int movieId = m.getId();
-        	
-            if(movieId == id) {
-            	film = m;
-            }
-        }
+		Movie film = (Movie) getBestMovies()
+			    .stream()
+			    .filter(movie -> movie.getId() == id)
+			    .findFirst()
+			    .get();
+
 		
 		model.addAttribute("title", film.getName());
 		
 		
 		return "movieDetails";
+	}
+	
+	@GetMapping("/songs/{id}")
+	public String songDetails(@PathVariable int id, Model model) {
+		
+		Song song = (Song) getBestSongs()
+			    .stream()
+			    .filter(movie -> movie.getId() == id)
+			    .findFirst()
+			    .get();
+
+		
+		model.addAttribute("title", song.getName());
+		
+		
+		return "songDetails";
 	}
 }
