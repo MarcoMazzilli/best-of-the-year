@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragments="html-head">
 <meta charset="UTF-8">
-<title>Songs</title>
+
+<!-- bootstrap-->
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"/>
+
+<title>Best of the year</title>
 </head>
 <body>
+
+<header th:replace="frags/header :: custom-header"></header>
 
  <h1>Song list : [[${song}]]</h1>
  <a href="http://localhost:8080/" >Back Home</a>

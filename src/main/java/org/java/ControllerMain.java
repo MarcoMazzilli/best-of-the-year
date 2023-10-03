@@ -2,8 +2,8 @@ package org.java;
 
 import java.util.ArrayList;
 
-import org.java.clas.Movie;
-import org.java.clas.Song;
+import org.java.pojo.Movie;
+import org.java.pojo.Song;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,7 +41,7 @@ public class ControllerMain {
 	@GetMapping("/movies")
 	public String getMovies(Model model) {
 		
-		model.addAttribute("movie", getBestMovies());
+		model.addAttribute("movies", getBestMovies());
 		
 		
 		 return "movies";
