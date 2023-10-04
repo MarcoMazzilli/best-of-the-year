@@ -66,7 +66,7 @@ public class ControllerMain {
 	@GetMapping("/songs")
 	public String getSongs(Model model) {
 		
-		model.addAttribute("song", getBestSongs());
+		model.addAttribute("songs", getBestSongs());
 		
 		
 		 return "songs";

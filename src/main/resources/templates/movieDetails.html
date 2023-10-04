@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:fragments="html-head">
 <meta charset="UTF-8">
-<title>Movie Details</title>
+
+<!-- bootstrap-->
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"/>
+
+<title>Best of the year</title>
 </head>
 <body>
 
-<h1>Nome del film : [[${title}]]</h1>
+<div th:replace="frags/header :: custom-header"></div>
+
+<div class="container">
+	<h1>Nome del film : [[${title}]]</h1>
+</div>
 
 </body>
 </html>

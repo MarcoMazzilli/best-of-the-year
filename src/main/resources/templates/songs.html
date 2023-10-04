@@ -12,8 +12,23 @@
 
 <header th:replace="frags/header :: custom-header"></header>
 
- <h1>Song list : [[${song}]]</h1>
- <a href="http://localhost:8080/" >Back Home</a>
+<div class="container text-center">
+	 
+	<ul class="p-0 d-flex align-items-center flex-column">
+	  <li 
+	  	class="w-25 list-unstyled text-center" 
+	  	th:each="song : ${songs}">
+	  	
+	  		<a class="btn btn-dark w-100 p-2 m-1"
+	  		   th:href="@{/songs/{id}(id=${song.getId()})}">
+	  		   [[${song.name}]]
+	  		</a>
+	  	</li>
+	</ul>
+	
+	 <a class="btn btn-danger" href="http://localhost:8080/">Back Home</a>
+</div>
+ 
 
 </body>
 </html>
